@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #include "main.h"
+#include "src/dump_coefs.h"
 
 /*********************************************/
 /* Decode quantization indices of excitation */
@@ -111,5 +112,6 @@ void silk_decode_pulses(
     /****************************************/
     /* Decode and add signs to pulse signal */
     /****************************************/
-    silk_decode_signs( psRangeDec, pulses, frame_length, signalType, quantOffsetType, sum_pulses );
+   silk_decode_signs( psRangeDec, pulses, frame_length, signalType, quantOffsetType, sum_pulses );
+   dump_silk_pulses16(0, pulses, frame_length);
 }
