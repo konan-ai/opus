@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #include "main.h"
+#include "src/dump_coefs.h"
 
 /* Limit, stabilize, convert and quantize NLSFs */
 void silk_process_NLSFs(
@@ -85,6 +86,7 @@ void silk_process_NLSFs(
         }
     }
 
+    dump_silk_coef(1, pNLSF_Q15, psEncC->predictLPCOrder);
     silk_NLSF_encode( psEncC->indices.NLSFIndices, pNLSF_Q15, psEncC->psNLSF_CB, pNLSFW_QW,
         NLSF_mu_Q20, psEncC->NLSF_MSVQ_Survivors, psEncC->indices.signalType );
 

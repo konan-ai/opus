@@ -31,6 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include "main.h"
 #include "stack_alloc.h"
+#include "src/dump_coefs.h"
 
 /*********************************************/
 /* Encode quantization indices of excitation */
@@ -76,6 +77,8 @@ void silk_encode_pulses(
     const opus_uint8 *cdf_ptr;
     const opus_uint8 *nBits_ptr;
     SAVE_STACK;
+
+    dump_silk_pulses8(1, pulses, frame_length);
 
     silk_memset( pulses_comb, 0, 8 * sizeof( opus_int ) ); /* Fixing Valgrind reported problem*/
 

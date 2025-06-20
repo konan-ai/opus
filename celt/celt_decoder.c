@@ -50,6 +50,7 @@
 #include <stdarg.h>
 #include "celt_lpc.h"
 #include "vq.h"
+#include "src/dump_coefs.h"
 
 #ifdef ENABLE_DEEP_PLC
 #include "lpcnet.h"
@@ -1294,6 +1295,7 @@ int celt_decode_with_ec_dred(CELTDecoder * OPUS_RESTRICT st, const unsigned char
          NULL, pulses, shortBlocks, spread_decision, dual_stereo, intensity, tf_res,
          len*(8<<BITRES)-anti_collapse_rsv, balance, dec, LM, codedBands, &st->rng, 0,
          st->arch, st->disable_inv);
+   dump_celt_coef(0, X, C*N);
 
    if (anti_collapse_rsv > 0)
    {

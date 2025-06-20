@@ -190,6 +190,7 @@ TESTS = celt/tests/test_unit_cwrs32 \
         tests/test_opus_extensions \
         tests/test_opus_padding \
         tests/test_opus_projection
+       tests/test_dump.sh
 
 opus_demo_SOURCES = src/opus_demo.c
 if ENABLE_LOSSGEN
@@ -361,6 +362,7 @@ EXTRA_DIST = opus.pc.in \
              tests/meson.build \
              doc/meson.build \
              tests/run_vectors.sh \
+             tests/test_dump.sh \
              celt/arm/arm2gnu.pl \
              celt/arm/celt_pitch_xcorr_arm.s
 

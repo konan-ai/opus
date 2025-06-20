@@ -6,3 +6,4 @@ src/opus_private.h \
 src/analysis.h \
 src/mapping_matrix.h \
 src/mlp.h
+src/dump_coefs.h

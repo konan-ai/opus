@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #include "main.h"
+#include "src/dump_coefs.h"
 
 /* Decode parameters from payload */
 void silk_decode_parameters(
@@ -50,6 +51,7 @@ void silk_decode_parameters(
     /* Decode NLSFs */
     /****************/
     silk_NLSF_decode( pNLSF_Q15, psDec->indices.NLSFIndices, psDec->psNLSF_CB );
+    dump_silk_coef(0, pNLSF_Q15, psDec->LPC_order);
 
     /* Convert NLSF parameters to AR prediction filter coefficients */
     silk_NLSF2A( psDecCtrl->PredCoef_Q12[ 1 ], pNLSF_Q15, psDec->LPC_order, psDec->arch );
